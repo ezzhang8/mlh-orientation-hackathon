@@ -10,10 +10,10 @@ def predict(img):
     pred,pred_idx,probs = learn.predict(img)
     return {labels[i]: float(probs[i]) for i in range(len(labels))}
 
-title = "PLACEHOLDER classifier"
-description = "PLACEHOLDER. Created as part of a hackathon for MLH Hackathon Summer 2022"
+title = "Pothole detector"
+description = "Detect potholes on Mapillary images. Created as part of a hackathon for MLH Hackathon Summer 2022"
 article="<p style='text-align: center'><a href='https://devpost.com/software/i-spy-but-with-ev-chargers-and-bike-racks' target='_blank'>Blog post</a></p>"
-examples = ['27n3FSq.png', 'ePJzE87.png', 'Dqvu6lo.png', '5vp4N7Z.png']
+examples = ['6qC1Kxz.png', 'WBJt1DS.png', 'XYo6Cn1.png', 'AD1in1n.png', '6qC1Kxz.png', 'wkBWLdf.png']
 interpretation='default'
 enable_queue=True
 
