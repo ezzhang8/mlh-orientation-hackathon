@@ -5,6 +5,11 @@ import MapillaryViewer from './components/MapillaryViewer';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import axios from "axios";
+import { Buffer } from "buffer"
+
+
+const endpoint = "https://hf.space/embed/RaymondDashWu/mlh_hackathon_sum22/+/api/predict/";
 
 function App() {
   // const container = document.createElement('div');
@@ -21,11 +26,22 @@ function App() {
 
   const [imageId, setImageId] = useState("1360724954411676");
 
+  async function predictImage(url) {
+    let image = await axios.get(url, { responseType: 'arraybuffer' });
+    let raw = Buffer.from(image.data).toString('base64');
+    let string = "data:" + image.headers["content-type"] + ";base64," + raw;
+
+    let predict = await axios.post(endpoint, {data: [string]})
+
+    console.log(predict.data);
+
+  }
+
   return (
     <>
 
       {/* {console.log(viewer.image)} */}
-      <Navbar bg="light" expand="lg">
+      {/* <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -43,7 +59,7 @@ function App() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar> */}
 
 
       <div>
@@ -58,13 +74,11 @@ function App() {
         /> */}
 
         <div>
-        <MapillaryViewer
-          imageId = {imageId}
-        />
+          <MapillaryViewer
+            imageId={imageId}
+            onImageChanged={image => predictImage(image.image._spatial.thumb.url)}
+          />
         </div>
-
-        
-        {console.log(imageId)}
       </div>
     </>
 
