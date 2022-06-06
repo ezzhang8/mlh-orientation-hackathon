@@ -15,15 +15,11 @@ export default class MapillaryViewer extends Component {
             imageId: this.props.imageId,
         });
 
-        console.log(this.viewer.getImage())
-
         this.viewer.on("image", this.onImageChanged);
-
     }
 
     componentWillUnmount() {
         if (this.viewer) {
-            this.viewer.off(Mapillary.Viewer.nodechanged, this.onNodeChanged);
             this.viewer.remove();
         }
     }

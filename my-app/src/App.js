@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import MapillaryViewer from './components/MapillaryViewer';
 
 import './App.css';
@@ -13,7 +12,7 @@ const endpoint = "https://hf.space/embed/RaymondDashWu/mlh_hackathon_sum22/+/api
 
 function App() {
   const [predict, setPredict] = useState("");
-  const imageId = "1360724954411676";
+  const imageId = "332693401796187"; //314251123493207
 
   async function predictImage(url) {
     let image = await axios.get(url, { responseType: 'arraybuffer' });
