@@ -15,7 +15,7 @@ Initially, we were going to try making a classifier for bike racks and ev charge
 
 ## Frontend Deployment
 
-In the project directory, you can run:
+In the project directory `my-app`, you can run:
 
 ### `npm start`
 
