@@ -1,0 +1,12 @@
+.overlay {
+    top: 10vh;
+    left: 50vw;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    font-size: 16px;
+    padding: 10px;
+    color: white;
+    transform: translateX(-50%)
+}
